@@ -1,9 +1,11 @@
 class SecretsController < ApplicationController
+  before_action :require_login
+  def index
+  end
   def show
-    if current_user
-      @secret = "I am hungry"
-    else
-      redirect_to new_session_path
-    end
+  end
+  private
+  def require_login
+    redirect_to login_path  unless session.include? :name
   end
 end
