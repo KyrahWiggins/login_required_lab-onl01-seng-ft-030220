@@ -10,4 +10,4 @@ class SecretsController < ApplicationController
     end
 
 
-end 
+end
