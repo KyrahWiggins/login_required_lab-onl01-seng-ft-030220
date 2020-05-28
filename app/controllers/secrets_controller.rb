@@ -6,14 +6,14 @@ class SecretsController < ApplicationController
 
   end
 
-  private 
+  private
 
   def require_login
-    if !session.include? :name 
-      redirect_to :login 
-    else 
-      render :show 
-    end 
-  end 
+    if !session.include? :name
+      redirect_to :login
+    else
+      render :show
+    end
+  end
 
 end
