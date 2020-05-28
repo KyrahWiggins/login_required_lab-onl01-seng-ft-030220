@@ -1,9 +1,11 @@
 class SecretsController < ApplicationController
-    def show
-        if current_user
-            render "/secrets/show"
-        else
-            redirect_to '/login'
-        end
-    end
+  before_action :require_login
+  def show
+  end
+
+  private
+
+  def require_login
+    redirect_to '/login' unless session.include? :name
+  end
 end
