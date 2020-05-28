@@ -1,13 +1,12 @@
 class SecretsController < ApplicationController
-  before_action :require_login
+  before_action :logged_in?
 
   def show
   end
 
   private
+  def logged_in?
+    redirect_to login_path if !current_user
+  end
 
-    def require_login
-      redirect_to '/' if current_user.nil?
-      #return head(:forbidden) unless session.include? :name
-    end
-end
+ end 
