@@ -1,11 +1,19 @@
 class SecretsController < ApplicationController
+
   before_action :require_login
-  def index
-  end
+
   def show
+
   end
-  private
+
+  private 
+
   def require_login
-    redirect_to login_path  unless session.include? :name
-  end
+    if !session.include? :name 
+      redirect_to :login 
+    else 
+      render :show 
+    end 
+  end 
+
 end
